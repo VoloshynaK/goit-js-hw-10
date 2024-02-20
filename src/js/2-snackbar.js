@@ -15,14 +15,14 @@ function onSubmitBtn(event) {
     let delay = Number(delayInput.value);
     let state = formElements.state.value;
     createPromise(delay, state)
-        .then(({ delay, state }) => {
+        .then(({ delay }) => {
             return iziToast.success({
                 title: 'OK',
                 message: `Fulfilled promise in ${delay}ms`,
                 position: 'topCenter',
             });
         })
-    .catch(({ delay, state }) => {
+    .catch(({ delay }) => {
       return iziToast.error({
             title: 'Error',
             message: `Rejected promise in ${delay}ms`,
@@ -37,9 +37,9 @@ function createPromise(delay, state) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (state === "fulfilled") {
-                resolve({ delay, state });
+                resolve({ delay });
             } else {
-                reject({ delay, state });
+                reject({ delay });
             }
         }, delay)
     })

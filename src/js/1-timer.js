@@ -34,14 +34,11 @@ const fp = flatpickr(dateInput, {
             dateInput.disabled = true;
         });
     } else {
-        if (timerIsActive) {
-            // return Notify.failure("Timer is already running!");
-            return iziToast.error({
-                title: 'Error',
-                message: 'Timer is already running!',
-                position: 'topCenter',
-            });
-        }
+        iziToast.error({
+            title: 'Error',
+            message: 'Please choose a date in the future!',
+            position: 'topCenter',
+        });
     };
       
   },
