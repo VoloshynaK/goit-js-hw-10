@@ -17,14 +17,14 @@ function onSubmitBtn(event) {
     createPromise(delay, state)
         .then(({ delay }) => {
             return iziToast.success({
-                title: 'OK',
+                title: '',
                 message: `Fulfilled promise in ${delay}ms`,
                 position: 'topCenter',
             });
         })
     .catch(({ delay }) => {
       return iziToast.error({
-            title: 'Error',
+            title: '',
             message: `Rejected promise in ${delay}ms`,
             position: 'topCenter',
         });
